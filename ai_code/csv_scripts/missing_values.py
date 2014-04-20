@@ -33,7 +33,7 @@ def average_missing(list, headers):
 	for header in headers:
 		for instance in list:
 			if instance[header] == 0:
-				instance[header] = average_dict[header]
+				instance[header] = round(average_dict[header], 3)
 
 	return list
 
