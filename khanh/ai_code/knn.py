@@ -2,11 +2,8 @@ import copy
 from math import sqrt
 from operator import itemgetter
 
-class KNearestNeighbours():
-	def __init__(self, training_data):
-		self.training_data = copy.deepcopy(training_data)
-		
-	def on(self, test_patient, k):
+class KNearestNeighbour():		
+	def on(self, test_patient):
 		# Eucledian distance
 		# D(A,B) = sqrt((a1-b1)^2 + (a2-b2)^2 + ... + (an-bn)^2)
 
@@ -24,7 +21,7 @@ class KNearestNeighbours():
 		class0_counter = 0
 		class1_counter = 0
 
-		for neighbour in sorted_list[:k]:
+		for neighbour in sorted_list[:self.k]:
 			if neighbour['class'] == "class0":
 				class0_counter += 1
 			elif neighbour['class'] == "class1":
