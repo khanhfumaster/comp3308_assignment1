@@ -1,9 +1,10 @@
+import copy
 from math import sqrt
 from operator import itemgetter
 
 class KNearestNeighbours():
 	def __init__(self, training_data):
-		self.training_data = training_data
+		self.training_data = copy.deepcopy(training_data)
 		
 	def on(self, test_patient, k):
 		# Eucledian distance
@@ -12,7 +13,7 @@ class KNearestNeighbours():
 		for patient in self.training_data:
 			inner_sum = 0
 			for attr in patient:
-				if attr != 'class':
+				if attr != 'class' and attr != 'distance':
 					inner_sum += (test_patient[attr] - patient[attr])**2
 			patient['distance'] = sqrt(inner_sum)
 
@@ -36,3 +37,7 @@ class KNearestNeighbours():
 			return "class0"
 		elif class1_counter > class0_counter:
 			return "class1"
+
+	def _cleanup(self):
+		for instance in self.training_data:
+			del instance['distance']

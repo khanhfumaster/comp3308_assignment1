@@ -1,9 +1,10 @@
+import copy
 import numpy
 from math import sqrt, exp, pi
 
 class NaiveBayes():
 	def __init__(self, training_data):
-		self.training_data = training_data
+		self.training_data = copy.deepcopy(training_data)
 
 	def on(self, test_patient):
 		# Let E be test_patient
@@ -11,9 +12,8 @@ class NaiveBayes():
 		# calculate the numerator only since P(E) will be same in comparison
 
 		results = {}
-		
-		for classifier in ['class0', 'class1']:
 
+		for classifier in ['class0', 'class1']:
 			numerator = self._p_class(classifier)
 
 			for attr in test_patient:
@@ -27,7 +27,6 @@ class NaiveBayes():
 			return 'class1' 
 
 		# TODO tie breaker
-
 
 	# P(E = x|class) = 1/(SD * sqrt(2*pi)) * exp(-(x-MEAN)^2/(2*SD^2)) 
 	def _p_e_class(self, key, val, classifier): 
@@ -48,7 +47,6 @@ class NaiveBayes():
 		# calculate probability
 		return 1/(std * sqrt(2*pi)) * exp(-((val-mean)**2)/((2*std)**2)) 
 		
-
 	# P(class)
 	def _p_class(self, classifier):
 		class_count = 0.0
