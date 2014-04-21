@@ -16,11 +16,7 @@ class KNearestNeighbours():
 		for patient in self.patient_list:
 			inner_sum = 0
 			for attr in patient:
-				# do check for numerical or nominal value
-				if isinstance(self.test_patient[attr], str):
-					if self.test_patient[attr] != patient[attr]:
-						inner_sum += 1
-				else:
+				if attr != 'class':
 					inner_sum += (self.test_patient[attr] - patient[attr])**2
 			patient['distance'] = sqrt(inner_sum)
 
