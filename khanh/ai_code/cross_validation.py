@@ -70,6 +70,8 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 	ten_folds_data = copy.deepcopy(data)
 
 	accuracy_sum = 0.0
+	total_correct = 0
+	total_incorrect= 0
 
 	for x in range(0, 10):
 		# one fold 
@@ -108,6 +110,8 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 
 		accuracy = 100 * float(correct)/(float(correct)+float(incorrect))
 		accuracy_sum += accuracy
+		total_correct += correct
+		total_incorrect += incorrect
 
 		print "Correct: ", correct
 		print "Incorrect: ", incorrect
@@ -118,7 +122,8 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 
 
 	average_accuracy = accuracy_sum/10
-	print "Summary"
-	print "--------"
+	print "---- Summary ----"
+	print "Correctly Classified Instances: ", total_correct
+	print "Incorrectly Classified Instances: ", total_incorrect
 	print "Average Accuracy: ", str(round(average_accuracy, 2)) + '%'
 	print ""
