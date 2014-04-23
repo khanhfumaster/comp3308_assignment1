@@ -23,7 +23,7 @@ class NaiveBayes():
 		
 		if results['class0'] > results['class1']:
 			return 'class0'
-		else:
+		elif results['class1'] > results['class0']:
 			return 'class1' 
 
 		# TODO tie breaker
@@ -45,7 +45,7 @@ class NaiveBayes():
 		std = numpy.std(arr)
 
 		# calculate probability
-		return 1/(std * sqrt(2*pi)) * exp(-((val-mean)**2)/((2*std)**2)) 
+		return 1/(std * sqrt(2*pi)) * exp(-((val-mean)**2)/(2*(std**2))) 
 		
 	# P(class)
 	def _p_class(self, klass):
