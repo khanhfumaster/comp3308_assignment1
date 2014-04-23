@@ -1,0 +1,81 @@
+=== Run information ===
+
+Scheme:weka.classifiers.bayes.NaiveBayes 
+Relation:     pima-weka.filters.unsupervised.attribute.Remove-R1,3-4
+Instances:    768
+Attributes:   6
+              plasma_glucose_concentration
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Naive Bayes Classifier
+
+                                 Class
+Attribute                       class1  class0
+                                (0.35)  (0.65)
+===============================================
+plasma_glucose_concentration
+  mean                           0.6335  0.4304
+  std. dev.                      0.1901  0.1593
+  weight sum                        268     500
+  precision                      0.0074  0.0074
+
+2h_serum_insulin
+  mean                           0.1986  0.1529
+  std. dev.                      0.1152  0.0904
+  weight sum                        268     500
+  precision                      0.0054  0.0054
+
+bmi
+  mean                           0.3514  0.2594
+  std. dev.                      0.1346  0.1329
+  weight sum                        268     500
+  precision                       0.004   0.004
+
+diabetes_pedigree_function
+  mean                           0.2017  0.1502
+  std. dev.                      0.1587  0.1275
+  weight sum                        268     500
+  precision                      0.0019  0.0019
+
+age
+  mean                           0.2682  0.1709
+  std. dev.                      0.1819  0.1937
+  weight sum                        268     500
+  precision                      0.0196  0.0196
+
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         587               76.4323 %
+Incorrectly Classified Instances       181               23.5677 %
+Kappa statistic                          0.4593
+Mean absolute error                      0.2853
+Root mean squared error                  0.4139
+Relative absolute error                 62.7637 %
+Root relative squared error             86.8388 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.575     0.134      0.697     0.575     0.63       0.825    class1
+                 0.866     0.425      0.792     0.866     0.827      0.825    class0
+Weighted Avg.    0.764     0.324      0.759     0.764     0.758      0.825
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 154 114 |   a = class1
+  67 433 |   b = class0
+

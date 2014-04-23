@@ -1,0 +1,40 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CfsSubsetEval 
+Search:weka.attributeSelection.BestFirst -D 1 -N 5
+Relation:     pima
+Instances:    768
+Attributes:   9
+              num_pregnant
+              plasma_glucose_concentration
+              diastolic_blood_pressure
+              tricep_skin_fold_pressure
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Evaluation mode:evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Best first.
+	Start set: no attributes
+	Search direction: forward
+	Stale search after 5 node expansions
+	Total number of subsets evaluated: 38
+	Merit of best subset found:    0.173
+
+Attribute Subset Evaluator (supervised, Class (nominal): 9 class):
+	CFS Subset Evaluator
+	Including locally predictive attributes
+
+Selected attributes: 2,5,6,7,8 : 5
+                     plasma_glucose_concentration
+                     2h_serum_insulin
+                     bmi
+                     diabetes_pedigree_function
+                     age

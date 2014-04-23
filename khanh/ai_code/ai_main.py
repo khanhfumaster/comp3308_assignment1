@@ -1,28 +1,39 @@
+import sys
 import csv
+import os.path
 from knn import KNearestNeighbour
 from naive_bayes import NaiveBayes
 from cross_validation import *
 
 def main():
-	# List of patient objects
-	patient_list = parse_csv()
+	if (len(sys.argv) > 1):
+		csv_filename = sys.argv[1]
 
-	# create the ten folds
-	ten_folds_strat_list = stratify_data(patient_list)
+		# check if the file exists
+		if os.path.isfile(csv_filename):
+			# List of patient objects
+			patient_list = parse_csv(csv_filename)
 
-	# create the classifer objects
-	knn = KNearestNeighbour()
-	naive_bayes = NaiveBayes()
+			# create the ten folds
+			ten_folds_strat_list = stratify_data(patient_list)
 
-	# call the 10-fold cross validation
-	ten_fold_strat_cross_validation(knn, ten_folds_strat_list, 10)
-	ten_fold_strat_cross_validation(naive_bayes, ten_folds_strat_list)
+			# create the classifer objects
+			knn = KNearestNeighbour()
+			naive_bayes = NaiveBayes()
 
-def parse_csv():
+			# call the 10-fold cross validation
+			ten_fold_strat_cross_validation(knn, ten_folds_strat_list, 10)
+			ten_fold_strat_cross_validation(naive_bayes, ten_folds_strat_list)
+		else:
+			print "File does not exist."	
+	else:
+		print "Please provide a filepath to the csv file."
+
+def parse_csv(filename):
 	patients = []
 
-	# Read the pima.csv file
-	with open('pima.csv', 'rb') as csvfile:
+	# Read the file
+	with open(filename, 'rb') as csvfile:
 		reader = csv.reader(csvfile)
 		
 		# store the headers
