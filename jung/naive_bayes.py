@@ -4,14 +4,14 @@ from math import sqrt, exp, pi
 from random import randint
 
 class naiveBayes():
-    def __init__(self, training_data):
-        self._training_data = copy.deepcopy(training_data)
+    def __init__(self):
+        self.type = 'naive bayes'
 
     # P(class)
     def p_class(self, classifier):
         count = 0.0
-        total = float(len(self._training_data))
-        for instance in self._training_data:
+        total = float(len(self.training_data))
+        for instance in self.training_data:
             if instance['class'] == classifier:
                 count += 1
         return count/total
@@ -19,12 +19,12 @@ class naiveBayes():
     # P(E = x|class)
     def p_e_class(self, key, val, classifier):
         keys = []
-        for instance in self._training_data:
+        for instance in self.training_data:
             if instance['class'] == classifier:
                 keys.append(instance[key])
         mean = numpy.mean(keys)
         std = numpy.std(keys)
-        return 1/((std * sqrt(2*pi)) * exp(-((val-mean)**2)/(2*(std**2))))
+        return 1/(std * sqrt(2*pi)) * exp(-((val-mean)**2)/(2*(std**2)))
     
     def classify(self, new_instance):
         results = {}

@@ -4,22 +4,22 @@ from operator import itemgetter
 from random import randint
 
 class kNN:
-    def __init__(self, training_data):
-        self._training_data = copy.deepcopy(training_data)
+    def __init__(self):
+        self.type = 'knn'
         
-    def classify(self, new_instance, k):
-        for instance in self._training_data:
+    def classify(self, new_instance):
+        for instance in self.training_data:
             distance = 0.0
             for attr in instance:
                 if attr != 'class' and attr != 'distance':
                     distance += (instance[attr] - new_instance[attr])**2
             instance['distance'] = sqrt(distance)
 
-        sorted_list = sorted(self._training_data, key=itemgetter('distance'))
+        sorted_list = sorted(self.training_data, key=itemgetter('distance'))
         class0_count = 0
         class1_count = 1
 
-        for neighbour in sorted_list[:k]:
+        for neighbour in sorted_list[:self.k]:
             if neighbour['class'] == 'class0':
                 class0_count += 1
             if neighbour['class'] == 'class1':
