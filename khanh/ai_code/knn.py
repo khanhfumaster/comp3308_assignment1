@@ -3,6 +3,9 @@ from math import sqrt
 from operator import itemgetter
 
 class KNearestNeighbour():		
+	def __init__(self):
+		self.type = 'KNearestNeighbour'
+
 	def on(self, test_patient):
 		# Eucledian distance
 		# D(A,B) = sqrt((a1-b1)^2 + (a2-b2)^2 + ... + (an-bn)^2)

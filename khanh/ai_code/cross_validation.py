@@ -39,11 +39,37 @@ def stratify_data(csv_data):
 		for i in range(0, len(class1_list)):
 			stratified_lists[i].append(class1_list.pop())
 
+	# output the list to a pima-folds.csv
+	filename = "pima-folds.csv"
+
+	with open(filename, 'wb') as output_file:
+		for idx, fold in enumerate(stratified_lists):			
+			fold_str = 'fold ' + str(idx + 1)
+			output_file.write(fold_str)
+			output_file.write('\n')
+
+			for instance in fold:
+				for i, attr in enumerate(instance):
+					if (i != 0):
+						output_file.write(',')
+					output_file.write(str(instance[attr]))
+					
+				output_file.write('\n')
+
+			if (idx != 9):
+				output_file.write('\n')
+
 	return stratified_lists
 
 # 10-fold stratified cross validation
 def ten_fold_strat_cross_validation(classifer, data, k=None):
+	print "--------------------------------------------------------"
+	print classifer.type + " 10-fold stratified cross validation"
+	print "--------------------------------------------------------"
+
 	ten_folds_data = copy.deepcopy(data)
+
+	accuracy_sum = 0.0
 
 	for x in range(0, 10):
 		# one fold 
@@ -64,8 +90,8 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 		print "fold" + str(x+1)
 		# add new line (use writeline)
 
-		correct = 0.0
-		incorrect = 0.0
+		correct = 0
+		incorrect = 0
 
 		for instance in testing_data:
 			expected_class = instance['class']
@@ -80,11 +106,19 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 			else:
 				incorrect += 1
 
-		accuracy = 100 * correct/(correct+incorrect)
+		accuracy = 100 * float(correct)/(float(correct)+float(incorrect))
+		accuracy_sum += accuracy
 
-		print "correct: ", correct
-		print "incorrect: ", incorrect
-		print "success rate: ", accuracy
+		print "Correct: ", correct
+		print "Incorrect: ", incorrect
+		print "Accuracy: ", str(round(accuracy, 2)) + '%'
 
 		# new line
 		print ""
+
+
+	average_accuracy = accuracy_sum/10
+	print "Summary"
+	print "--------"
+	print "Average Accuracy: ", str(round(average_accuracy, 2)) + '%'
+	print ""

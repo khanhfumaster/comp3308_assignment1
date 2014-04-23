@@ -3,6 +3,9 @@ import numpy
 from math import sqrt, exp, pi
 
 class NaiveBayes():
+	def __init__(self):
+		self.type = 'NaiveBayes'
+
 	def on(self, test_patient):
 		# Let E be test_patient
 		# P(class0|E) = (P(E1|class0)P(E2|class0)P(E3|class0)P(E4|class0)P(class0))/P(E)
