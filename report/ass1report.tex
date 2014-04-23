@@ -1,0 +1,87 @@
+\documentclass{article}
+\usepackage{fancyhdr} 
+\usepackage{lastpage}
+\usepackage{mathtools}
+\usepackage{extramarks}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{lipsum} 
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{url}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{COMP3308}
+\chead{Intro to AI}
+\rhead{Assignment 1}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{Woo Hyun Jung 310250811 \\  Khanh Cao Quoc Nguyen 311253865} 
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+\renewcommand{\tt}{\texttt}
+\setlength\parindent{0pt} 
+
+\title{COMP3308 Assignment 1 \\ Predicting Diabetes}
+\author{Woo Hyun Jung 310250811 \\  Khanh Cao Quoc Nguyen 311253865}
+\date{}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\newpage
+
+\section{Aim}
+The aim of our study is to predict whether a new patient will test positive for diabetes (class 1). The study is important because blah blah dicks
+
+\section{Data}
+\subsection{Dataset}
+The data set we used was the Pima Indians Diabetes Database found at \url{http://archive.ics.uci.edu/ml/machine-learning-databases/pima-indians-diabetes/}. \\
+There are nine attributes: 
+\begin{enumerate}[1.]
+\item Number of times pregnant
+\item Plasma glucose concentration a 2 hours in an oral glucose tolerance test
+\item Diastolic blood pressure (mm Hg)
+\item Triceps skin fold thickness (mm)
+\item 2-Hour serum insulin (mu U/ml)
+\item Body mass index (weight in kg/(height in m)$^2)$
+\item Diabetes pedigree function
+\item Age (years)
+\item Class variable (0 or 1)
+\end{enumerate} 
+and two classes:
+\begin{enumerate}[1.]
+\item class1 (testing positive for diabetes)
+\item class0 (testing negative for diabetes)
+\end{enumerate} 
+
+\subsection{Data preperation}
+The raw \tt{.data} file was preprocessed in multiple ways. Firstly, we added a header row to the file and converted to \tt{.csv}. This was necessary to be able to open it in Weka. Before we loaded it, however, we had to change some values in the data as there were missing values (denoted by 0). We wrote a script \tt{csv\_scripts\textbackslash missing\_values.py} which took the average of each attribute column and replaced the 0 values. This was done because ... \\
+Once this new file was loaded into Weka, each of the attributes were normalised in the range $[0, 1]$. The final output file was saved as \tt{pima.csv}
+\subsection{Attribute selection}
+\section{Results and Discussion}
+\section{Conclusions}
+\section{Reflection}
+\section{Instructions}
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
