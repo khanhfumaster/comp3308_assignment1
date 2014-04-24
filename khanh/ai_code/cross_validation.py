@@ -63,8 +63,12 @@ def stratify_data(csv_data):
 
 # 10-fold stratified cross validation
 def ten_fold_strat_cross_validation(classifer, data, k=None):
+	title = classifer.type + " 10-fold stratified cross validation"
+	if k is not None:
+		title += ", k=" + str(k)
+
 	print "--------------------------------------------------------"
-	print classifer.type + " 10-fold stratified cross validation"
+	print title
 	print "--------------------------------------------------------"
 
 	ten_folds_data = copy.deepcopy(data)

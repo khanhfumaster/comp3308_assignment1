@@ -22,7 +22,8 @@ def main():
 			naive_bayes = NaiveBayes()
 
 			# call the 10-fold cross validation
-			ten_fold_strat_cross_validation(knn, ten_folds_strat_list, 10)
+			ten_fold_strat_cross_validation(knn, ten_folds_strat_list, 1)
+			ten_fold_strat_cross_validation(knn, ten_folds_strat_list, 5)
 			ten_fold_strat_cross_validation(naive_bayes, ten_folds_strat_list)
 		else:
 			print "File does not exist."	
