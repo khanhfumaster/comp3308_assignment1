@@ -120,7 +120,7 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 		print "Correct: ", correct
 		print "Incorrect: ", incorrect
 		print "Total: ", str(correct + incorrect)
-		print "Accuracy: ", str(round(accuracy, 2)) + '%'
+		print "Accuracy: ", str(round(accuracy, 4)) + '%'
 
 
 		# new line
@@ -132,5 +132,5 @@ def ten_fold_strat_cross_validation(classifer, data, k=None):
 	print "Correctly Classified Instances: ", total_correct
 	print "Incorrectly Classified Instances: ", total_incorrect
 	print "Total Instances: ", str(total_correct + total_incorrect)
-	print "Average Accuracy: ", str(round(average_accuracy, 2)) + '%'
+	print "Average Accuracy: ", str(round(average_accuracy, 4)) + '%'
 	print ""

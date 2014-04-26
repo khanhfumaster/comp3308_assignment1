@@ -1,0 +1,44 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.ZeroR 
+Relation:     pima-weka.filters.unsupervised.attribute.Remove-R1,3-4
+Instances:    768
+Attributes:   6
+              plasma_glucose_concentration
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+ZeroR predicts class value: class0
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         500               65.1042 %
+Incorrectly Classified Instances       268               34.8958 %
+Kappa statistic                          0     
+Mean absolute error                      0.4545
+Root mean squared error                  0.4766
+Relative absolute error                100      %
+Root relative squared error            100      %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0         0          0         0         0          0.497    class1
+                 1         1          0.651     1         0.789      0.497    class0
+Weighted Avg.    0.651     0.651      0.424     0.651     0.513      0.497
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+   0 268 |   a = class1
+   0 500 |   b = class0

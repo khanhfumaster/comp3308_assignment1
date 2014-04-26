@@ -1,0 +1,49 @@
+=== Run information ===
+
+Scheme:weka.classifiers.lazy.IBk -K 1 -W 0 -A "weka.core.neighboursearch.LinearNNSearch -A \"weka.core.EuclideanDistance -R first-last\""
+Relation:     pima
+Instances:    768
+Attributes:   9
+              num_pregnant
+              plasma_glucose_concentration
+              diastolic_blood_pressure
+              tricep_skin_fold_pressure
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+IB1 instance-based classifier
+using 1 nearest neighbour(s) for classification
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         520               67.7083 %
+Incorrectly Classified Instances       248               32.2917 %
+Kappa statistic                          0.2918
+Mean absolute error                      0.3234
+Root mean squared error                  0.5674
+Relative absolute error                 71.1602 %
+Root relative squared error            119.0489 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.545     0.252      0.537     0.545     0.541      0.635    class1
+                 0.748     0.455      0.754     0.748     0.751      0.635    class0
+Weighted Avg.    0.677     0.384      0.678     0.677     0.678      0.635
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 146 122 |   a = class1
+ 126 374 |   b = class0

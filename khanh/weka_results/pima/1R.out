@@ -1,0 +1,61 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.OneR -B 6
+Relation:     pima
+Instances:    768
+Attributes:   9
+              num_pregnant
+              plasma_glucose_concentration
+              diastolic_blood_pressure
+              tricep_skin_fold_pressure
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+plasma_glucose_concentration:
+	< 0.454839	-> class0
+	< 0.4612905	-> class1
+	< 0.519355	-> class0
+	< 0.5258065	-> class1
+	< 0.5387095	-> class0
+	< 0.545161	-> class1
+	< 0.5774195	-> class0
+	< 0.5967739999999999	-> class1
+	< 0.6419355	-> class0
+	< 0.7	-> class1
+	< 0.7129030000000001	-> class0
+	>= 0.7129030000000001	-> class1
+(587/768 instances correct)
+
+
+Time taken to build model: 0 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         544               70.8333 %
+Incorrectly Classified Instances       224               29.1667 %
+Kappa statistic                          0.3242
+Mean absolute error                      0.2917
+Root mean squared error                  0.5401
+Relative absolute error                 64.1722 %
+Root relative squared error            113.3051 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.474     0.166      0.605     0.474     0.531      0.654    class1
+                 0.834     0.526      0.747     0.834     0.788      0.654    class0
+Weighted Avg.    0.708     0.4        0.698     0.708     0.699      0.654
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 127 141 |   a = class1
+  83 417 |   b = class0

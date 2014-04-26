@@ -1,4 +1,4 @@
-num_pregnant,plasma_glucose_concentration,diastolic_blood_pressure,tricep_skin_fold_pressure,2h_serum_insulin,bmi,diabetes_pedigree_function,age,class
+num_pregnant,plasma_glucose_concentration,diastolic_blood_pressure,tricep_skin_fold_thickness,2h_serum_insulin,bmi,diabetes_pedigree_function,age,class
 6,148,72,35,0,33.6,0.627,50,class1
 1,85,66,29,0,26.6,0.351,31,class0
 8,183,64,0,0,23.3,0.672,32,class1

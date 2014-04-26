@@ -1,0 +1,207 @@
+--------------------------------------------------------
+KNearestNeighbour 10-fold stratified cross validation, k=1
+--------------------------------------------------------
+fold1
+Correct:  51
+Incorrect:  25
+Total:  76
+Accuracy:  67.1053%
+
+fold2
+Correct:  58
+Incorrect:  18
+Total:  76
+Accuracy:  76.3158%
+
+fold3
+Correct:  53
+Incorrect:  24
+Total:  77
+Accuracy:  68.8312%
+
+fold4
+Correct:  46
+Incorrect:  31
+Total:  77
+Accuracy:  59.7403%
+
+fold5
+Correct:  55
+Incorrect:  22
+Total:  77
+Accuracy:  71.4286%
+
+fold6
+Correct:  52
+Incorrect:  25
+Total:  77
+Accuracy:  67.5325%
+
+fold7
+Correct:  51
+Incorrect:  26
+Total:  77
+Accuracy:  66.2338%
+
+fold8
+Correct:  51
+Incorrect:  26
+Total:  77
+Accuracy:  66.2338%
+
+fold9
+Correct:  51
+Incorrect:  26
+Total:  77
+Accuracy:  66.2338%
+
+fold10
+Correct:  58
+Incorrect:  19
+Total:  77
+Accuracy:  75.3247%
+
+---- Summary ----
+Correctly Classified Instances:  526
+Incorrectly Classified Instances:  242
+Total Instances:  768
+Average Accuracy:  68.4979%
+
+--------------------------------------------------------
+KNearestNeighbour 10-fold stratified cross validation, k=5
+--------------------------------------------------------
+fold1
+Correct:  56
+Incorrect:  20
+Total:  76
+Accuracy:  73.6842%
+
+fold2
+Correct:  65
+Incorrect:  11
+Total:  76
+Accuracy:  85.5263%
+
+fold3
+Correct:  60
+Incorrect:  17
+Total:  77
+Accuracy:  77.9221%
+
+fold4
+Correct:  49
+Incorrect:  28
+Total:  77
+Accuracy:  63.6364%
+
+fold5
+Correct:  60
+Incorrect:  17
+Total:  77
+Accuracy:  77.9221%
+
+fold6
+Correct:  53
+Incorrect:  24
+Total:  77
+Accuracy:  68.8312%
+
+fold7
+Correct:  60
+Incorrect:  17
+Total:  77
+Accuracy:  77.9221%
+
+fold8
+Correct:  65
+Incorrect:  12
+Total:  77
+Accuracy:  84.4156%
+
+fold9
+Correct:  58
+Incorrect:  19
+Total:  77
+Accuracy:  75.3247%
+
+fold10
+Correct:  58
+Incorrect:  19
+Total:  77
+Accuracy:  75.3247%
+
+---- Summary ----
+Correctly Classified Instances:  584
+Incorrectly Classified Instances:  184
+Total Instances:  768
+Average Accuracy:  76.0509%
+
+--------------------------------------------------------
+NaiveBayes 10-fold stratified cross validation
+--------------------------------------------------------
+fold1
+Correct:  55
+Incorrect:  21
+Total:  76
+Accuracy:  72.3684%
+
+fold2
+Correct:  59
+Incorrect:  17
+Total:  76
+Accuracy:  77.6316%
+
+fold3
+Correct:  60
+Incorrect:  17
+Total:  77
+Accuracy:  77.9221%
+
+fold4
+Correct:  54
+Incorrect:  23
+Total:  77
+Accuracy:  70.1299%
+
+fold5
+Correct:  59
+Incorrect:  18
+Total:  77
+Accuracy:  76.6234%
+
+fold6
+Correct:  62
+Incorrect:  15
+Total:  77
+Accuracy:  80.5195%
+
+fold7
+Correct:  59
+Incorrect:  18
+Total:  77
+Accuracy:  76.6234%
+
+fold8
+Correct:  62
+Incorrect:  15
+Total:  77
+Accuracy:  80.5195%
+
+fold9
+Correct:  54
+Incorrect:  23
+Total:  77
+Accuracy:  70.1299%
+
+fold10
+Correct:  65
+Incorrect:  12
+Total:  77
+Accuracy:  84.4156%
+
+---- Summary ----
+Correctly Classified Instances:  589
+Incorrectly Classified Instances:  179
+Total Instances:  768
+Average Accuracy:  76.6883%
+

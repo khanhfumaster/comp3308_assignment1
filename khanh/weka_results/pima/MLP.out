@@ -1,0 +1,124 @@
+=== Run information ===
+
+Scheme:weka.classifiers.functions.MultilayerPerceptron -L 0.3 -M 0.2 -N 500 -V 0 -S 0 -E 20 -H a
+Relation:     pima
+Instances:    768
+Attributes:   9
+              num_pregnant
+              plasma_glucose_concentration
+              diastolic_blood_pressure
+              tricep_skin_fold_pressure
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+Sigmoid Node 0
+    Inputs    Weights
+    Threshold    2.6828757886726837
+    Node 2    -3.4615234126849104
+    Node 3    -6.432916436119701
+    Node 4    -2.33444044251569
+    Node 5    -3.2675906777839794
+    Node 6    -1.5541716516883963
+Sigmoid Node 1
+    Inputs    Weights
+    Threshold    -2.682875788667232
+    Node 2    3.4615234126808394
+    Node 3    6.432916436046335
+    Node 4    2.3344404425127285
+    Node 5    3.267590677778491
+    Node 6    1.5541716516863615
+Sigmoid Node 2
+    Inputs    Weights
+    Threshold    -10.589969402243208
+    Attrib num_pregnant    -0.3369026161293572
+    Attrib plasma_glucose_concentration    -6.118697971886588
+    Attrib diastolic_blood_pressure    -2.39267626947201
+    Attrib tricep_skin_fold_pressure    1.538850080888275
+    Attrib 2h_serum_insulin    -14.25015085604599
+    Attrib bmi    3.4267001051270753
+    Attrib diabetes_pedigree_function    -1.897885011865823
+    Attrib age    5.561446287017782
+Sigmoid Node 3
+    Inputs    Weights
+    Threshold    -12.357557254186565
+    Attrib num_pregnant    -0.8775877174130761
+    Attrib plasma_glucose_concentration    -3.6549685490932067
+    Attrib diastolic_blood_pressure    -3.858164985303772
+    Attrib tricep_skin_fold_pressure    1.3266365872172396
+    Attrib 2h_serum_insulin    -7.917387586313122
+    Attrib bmi    -12.896657112606407
+    Attrib diabetes_pedigree_function    2.6354032698197165
+    Attrib age    6.897718493274036
+Sigmoid Node 4
+    Inputs    Weights
+    Threshold    -6.042233537597438
+    Attrib num_pregnant    -1.58985910761284
+    Attrib plasma_glucose_concentration    -5.604333397359752
+    Attrib diastolic_blood_pressure    6.080876794666083
+    Attrib tricep_skin_fold_pressure    9.89774120797529
+    Attrib 2h_serum_insulin    -2.3826349375714724
+    Attrib bmi    -7.184150342455729
+    Attrib diabetes_pedigree_function    0.06595378656616918
+    Attrib age    -7.643110005280968
+Sigmoid Node 5
+    Inputs    Weights
+    Threshold    -10.745620101336602
+    Attrib num_pregnant    -0.7587276597450955
+    Attrib plasma_glucose_concentration    -4.520800931234868
+    Attrib diastolic_blood_pressure    -1.003101266683313
+    Attrib tricep_skin_fold_pressure    -10.98264656986965
+    Attrib 2h_serum_insulin    8.948888231997648
+    Attrib bmi    2.5114885380153633
+    Attrib diabetes_pedigree_function    0.030813030608484258
+    Attrib age    -10.68829292100996
+Sigmoid Node 6
+    Inputs    Weights
+    Threshold    -12.543185311961517
+    Attrib num_pregnant    0.29088294187932395
+    Attrib plasma_glucose_concentration    -2.429434504913232
+    Attrib diastolic_blood_pressure    -0.13402607251709645
+    Attrib tricep_skin_fold_pressure    -1.2086173000862297
+    Attrib 2h_serum_insulin    -3.662167950373347
+    Attrib bmi    -7.779372855787568
+    Attrib diabetes_pedigree_function    -12.343733072360205
+    Attrib age    -0.578886730687111
+Class class1
+    Input
+    Node 0
+Class class0
+    Input
+    Node 1
+
+
+Time taken to build model: 0.51 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         579               75.3906 %
+Incorrectly Classified Instances       189               24.6094 %
+Kappa statistic                          0.4607
+Mean absolute error                      0.2951
+Root mean squared error                  0.424 
+Relative absolute error                 64.928  %
+Root relative squared error             88.9509 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.657     0.194      0.645     0.657     0.651      0.802    class1
+                 0.806     0.343      0.814     0.806     0.81       0.802    class0
+Weighted Avg.    0.754     0.291      0.755     0.754     0.754      0.802
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 176  92 |   a = class1
+  97 403 |   b = class0

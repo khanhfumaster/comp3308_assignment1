@@ -1,0 +1,106 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     pima
+Instances:    768
+Attributes:   9
+              num_pregnant
+              plasma_glucose_concentration
+              diastolic_blood_pressure
+              tricep_skin_fold_pressure
+              2h_serum_insulin
+              bmi
+              diabetes_pedigree_function
+              age
+              class
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+plasma_glucose_concentration <= 0.535484
+|   bmi <= 0.167689: class0 (122.0/1.0)
+|   bmi > 0.167689
+|   |   age <= 0.116667: class0 (188.0/22.0)
+|   |   age > 0.116667
+|   |   |   2h_serum_insulin <= 0.088942: class0 (22.0)
+|   |   |   2h_serum_insulin > 0.088942
+|   |   |   |   diabetes_pedigree_function <= 0.233134
+|   |   |   |   |   plasma_glucose_concentration <= 0.316129: class0 (22.0/1.0)
+|   |   |   |   |   plasma_glucose_concentration > 0.316129
+|   |   |   |   |   |   age <= 0.55
+|   |   |   |   |   |   |   tricep_skin_fold_pressure <= 0.271739
+|   |   |   |   |   |   |   |   diastolic_blood_pressure <= 0.591837: class1 (52.0/18.0)
+|   |   |   |   |   |   |   |   diastolic_blood_pressure > 0.591837
+|   |   |   |   |   |   |   |   |   diabetes_pedigree_function <= 0.135354: class0 (11.0/1.0)
+|   |   |   |   |   |   |   |   |   diabetes_pedigree_function > 0.135354: class1 (2.0)
+|   |   |   |   |   |   |   tricep_skin_fold_pressure > 0.271739
+|   |   |   |   |   |   |   |   diastolic_blood_pressure <= 0.653061: class0 (19.0/3.0)
+|   |   |   |   |   |   |   |   diastolic_blood_pressure > 0.653061: class1 (2.0)
+|   |   |   |   |   |   age > 0.55: class0 (8.0)
+|   |   |   |   diabetes_pedigree_function > 0.233134: class1 (37.0/9.0)
+plasma_glucose_concentration > 0.535484
+|   bmi <= 0.239264
+|   |   plasma_glucose_concentration <= 0.651613: class0 (40.0/6.0)
+|   |   plasma_glucose_concentration > 0.651613
+|   |   |   2h_serum_insulin <= 0.163462: class1 (8.0/1.0)
+|   |   |   2h_serum_insulin > 0.163462
+|   |   |   |   num_pregnant <= 0.058824: class0 (5.0)
+|   |   |   |   num_pregnant > 0.058824
+|   |   |   |   |   diabetes_pedigree_function <= 0.043553: class1 (3.0)
+|   |   |   |   |   diabetes_pedigree_function > 0.043553
+|   |   |   |   |   |   age <= 0.533333
+|   |   |   |   |   |   |   num_pregnant <= 0.411765
+|   |   |   |   |   |   |   |   diastolic_blood_pressure <= 0.493929: class1 (6.0/1.0)
+|   |   |   |   |   |   |   |   diastolic_blood_pressure > 0.493929: class0 (6.0)
+|   |   |   |   |   |   |   num_pregnant > 0.411765: class1 (3.0)
+|   |   |   |   |   |   age > 0.533333: class0 (4.0)
+|   bmi > 0.239264
+|   |   plasma_glucose_concentration <= 0.729032
+|   |   |   num_pregnant <= 0.411765
+|   |   |   |   diastolic_blood_pressure <= 0.377551: class1 (6.0)
+|   |   |   |   diastolic_blood_pressure > 0.377551
+|   |   |   |   |   2h_serum_insulin <= 0.213942: class1 (65.0/26.0)
+|   |   |   |   |   2h_serum_insulin > 0.213942
+|   |   |   |   |   |   age <= 0.35: class0 (16.0/1.0)
+|   |   |   |   |   |   age > 0.35: class1 (3.0)
+|   |   |   num_pregnant > 0.411765
+|   |   |   |   diabetes_pedigree_function <= 0.150299
+|   |   |   |   |   diastolic_blood_pressure <= 0.510204: class1 (3.0)
+|   |   |   |   |   diastolic_blood_pressure > 0.510204: class0 (5.0/1.0)
+|   |   |   |   diabetes_pedigree_function > 0.150299: class1 (18.0/1.0)
+|   |   plasma_glucose_concentration > 0.729032: class1 (92.0/12.0)
+
+Number of Leaves  : 	27
+
+Size of the tree : 	53
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         555               72.2656 %
+Incorrectly Classified Instances       213               27.7344 %
+Kappa statistic                          0.3974
+Mean absolute error                      0.3167
+Root mean squared error                  0.4449
+Relative absolute error                 69.6762 %
+Root relative squared error             93.3485 %
+Total Number of Instances              768     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.631     0.228      0.597     0.631     0.613      0.765    class1
+                 0.772     0.369      0.796     0.772     0.784      0.765    class0
+Weighted Avg.    0.723     0.32       0.727     0.723     0.724      0.765
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 169  99 |   a = class1
+ 114 386 |   b = class0

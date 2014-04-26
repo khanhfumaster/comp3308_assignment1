@@ -7,7 +7,7 @@ def omit_missing(list):
 		
 		if instance['plasma_glucose_concentration']!= 0 and \
 		instance['diastolic_blood_pressure']!= 0 and \
-		instance['tricep_skin_fold_pressure']!= 0 and \
+		instance['tricep_skin_fold_thickness']!= 0 and \
 		instance['2h_serum_insulin']!= 0 and \
 		instance['bmi']!= 0 and \
 		instance['diabetes_pedigree_function']!= 0:
