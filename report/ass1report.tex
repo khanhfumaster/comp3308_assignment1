@@ -23,7 +23,7 @@
 % Set up the header and footer
 \pagestyle{fancy}
 \lhead{COMP3308}
-\chead{Intro to AI}
+\chead{Introduction to Artificial Intelligence}
 \rhead{Assignment 1}
 \lfoot{}
 \cfoot{\thepage}
@@ -65,14 +65,93 @@ and two classes:
 \item class0 (testing negative for diabetes)
 \end{enumerate} 
 
-\subsection{Data preperation}
-The raw \tt{.data} file was preprocessed in multiple ways. Firstly, we added a header row to the file and converted to \tt{.csv}. This was necessary to be able to open it in Weka. Before we loaded it, however, we had to change some values in the data as there were missing values (denoted by 0). We wrote a script \tt{csv\_scripts\textbackslash missing\_values.py} which took the average of each attribute column and replaced the 0 values. This was done because ... \\
+\subsection{Data preparation}
+\subsubsection{Manual preprocessing}
+The raw \tt{.data} file was preprocessed manually in multiple ways. Firstly we had to come up with simple names for the nine attributes:
+\begin{enumerate}[1.]
+\item num\_pregnant
+\item plasma\_glucose\_concentration
+\item diastolic\_blood\_pressure
+\item tricep\_skin\_fold\_thickness
+\item 2h\_serum\_insulin
+\item bmi
+\item diabetes\_pedigree\_function
+\item age
+\item class
+\end{enumerate}
+Using these names, we added a header row the \tt{.data} file. We then changed the values of the class column to class0 and class1 instead of 0 and 1. This file was then saved a \tt{.csv} file for later convenience.
+
+\subsubsection{Missing Values}
+We wrote a script \tt{csv\_scripts\textbackslash missing\_values.py} that dealt with the missing values in the following attributes:
+\begin{enumerate}[1.]
+\item plasma\_glucose\_concentration
+\item diastolic\_blood\_pressure
+\item tricep\_skin\_fold\_thickness
+\item 2h\_serum\_insulin
+\item bmi
+\item diabetes\_pedigree\_function
+\end{enumerate} 
+
+We determined that these attributes consisted of missing values because 0 is a impossible or unrealistic value for it.\\
+
+This script outputs two \tt{.csv} files, one with missing values taking the calculated average of its respective attribute(\tt{pima-indians-diabetes-avg.csv}) and the other with any instances with missing values omitted(\tt{pima-indians-diabetes-omit.csv}).\\
+
+We noticed that if we omit the instances with missing values we would be left with 392 instances out of the original 768. So we decided to use the averaged output file for the rest of the assignment.
+
+\subsubsection{Normalisation}
 Once this new file was loaded into Weka, each of the attributes were normalised in the range $[0, 1]$. The final output file was saved as \tt{pima.csv}
+
 \subsection{Attribute selection}
+With the \tt{pima.csv} loaded into Weka, we used the \tt{CfsSubsetEval} attribute evaluator with the \tt{BestFirst} search method available on the \tt{Select attributes} tab to determine the best subset of features based on how good the individual feature are at predicting the class and how much they correlate with the other features.
+The selected attributes were:
+\begin{enumerate}[1.]
+\item plasma\_glucose\_concentration
+\item 2h\_serum\_insulin
+\item bmi
+\item diabetes\_pedigree\_function
+\item age
+\end{enumerate} 
+
+We then proceed to use Weka's preprocessing features to remove the attributes that were not selected and saved the file as \tt{pima-CFS.csv}.
+
 \section{Results and Discussion}
+\begin{table}[h]
+\begin{tabular}{llllllll}
+\hline
+                                    & ZeroR   & 1R      & 1-NN    & 5-NN    & NB      & DT      & MLP     \\ \hline
+No feature selection                & 65.1042 & 70.8333 & 67.7083 & 74.7396 & 74.7396 & 72.2656 & 75.3906 \\
+Correlation-based feature selection & 65.1042 & 70.8333 & 69.0104 & 74.6094 & 76.4323 & 73.9583 & 75.7813 \\ \hline
+\end{tabular}
+\caption{Results from Weka}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{@{}llll@{}}
+\hline
+                                    & My1-NN  & My5-NN  & MyNB    \\ \hline
+No feature selection                & 68.7645 & 75.2546 & 75.3828 \\
+Correlation-based feature selection & 68.4979 & 76.0509 & 76.6883 \\ \hline
+\end{tabular}
+\caption {Results of implementations of kNN and NB}
+\end{table}
+
+discuss here blah blah blah bleh
+
 \section{Conclusions}
 \section{Reflection}
 \section{Instructions}
+Our implementation of K Nearest Neighbour, Naive Bayes and 10\-fold stratified cross validation was written in Python 2.7.5.\\
+
+The \tt{ai\_main.py} file runs 10-fold stratified cross validation on K Nearest Neighbour($k=1$ and $k=5$) and Naive Bayes on a given \tt{.csv} file.\\
+
+To run our implementation, you must \tt{cd} into the \tt{ai\_code} directory and ensure that \tt{pima.csv} and \tt{pima-CFS.csv} are present in the directory. Then run:
+\begin{lstlisting}
+python ai_main.py pima.csv
+python ai_main.py pima-CFS.csv
+\end{lstlisting}
+
+This should output \tt{pima-folds.csv} and \tt{pima-CFS-folds.csv} respectively, which are the stratified folds.
+
 
 
 
