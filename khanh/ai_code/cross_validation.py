@@ -2,7 +2,7 @@ import copy
 
 # Divide up the instance into 10 equal sets with the same class ratio as the original data.
 # Leftovers are equally distributed to the sets
-def stratify_data(csv_data):
+def stratify_data(csv_data, csv_filename):
 	#split data by class
 	class0_list = []
 	class1_list = []
@@ -40,7 +40,7 @@ def stratify_data(csv_data):
 			stratified_lists[i].append(class1_list.pop())
 
 	# output the list to a pima-folds.csv
-	filename = "pima-folds.csv"
+	filename = csv_filename.replace(".csv", "-folds.csv")
 
 	with open(filename, 'wb') as output_file:
 		for idx, fold in enumerate(stratified_lists):			

@@ -15,7 +15,7 @@ def main():
 			patient_list = parse_csv(csv_filename)
 
 			# create the ten folds
-			ten_folds_strat_list = stratify_data(patient_list)
+			ten_folds_strat_list = stratify_data(patient_list, csv_filename)
 
 			# create the classifer objects
 			knn = KNearestNeighbour()
