@@ -1,6 +1,7 @@
 import copy
 import numpy
 from math import sqrt, exp, pi
+from random import randint
 
 class NaiveBayes():
 	def __init__(self):
@@ -25,8 +26,12 @@ class NaiveBayes():
 			return 'class0'
 		elif results['class1'] > results['class0']:
 			return 'class1' 
-
-		# TODO tie breaker
+		elif results['class0'] == results['class1']:
+			rand = randint(0, 1)
+			if rand == 0:
+				return 'class0'
+			elif rand == 1:
+				return 'class1'
 
 	# P(E = x|class) = 1/(SD * sqrt(2*pi)) * exp(-(x-MEAN)^2/(2*SD^2)) 
 	def _p_e_class(self, key, val, klass): 

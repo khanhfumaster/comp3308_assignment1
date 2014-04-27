@@ -1,6 +1,7 @@
 import copy
 from math import sqrt
 from operator import itemgetter
+from random import randint
 
 class KNearestNeighbour():		
 	def __init__(self):
@@ -31,11 +32,17 @@ class KNearestNeighbour():
 				class1_counter += 1
 
 		if class0_counter == class1_counter:
-			#TODO: decide on a tie breaker method
-			return "Tie. Deal with it."
+			self._cleanup()
+			rand = randint(0, 1)
+			if rand == 0:
+				return 'class0'
+			elif rand == 1:
+				return 'class1'
 		elif class0_counter > class1_counter:
+			self._cleanup()
 			return "class0"
 		elif class1_counter > class0_counter:
+			self._cleanup()
 			return "class1"
 
 	def _cleanup(self):
