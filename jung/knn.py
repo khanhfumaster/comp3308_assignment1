@@ -17,7 +17,7 @@ class kNN:
 
         sorted_list = sorted(self.training_data, key=itemgetter('distance'))
         class0_count = 0
-        class1_count = 1
+        class1_count = 0
 
         for neighbour in sorted_list[:self.k]:
             if neighbour['class'] == 'class0':
