@@ -42,7 +42,7 @@
 \newpage
 
 \section{Aim}
-The aim of our study is to predict whether a new patient will test positive for diabetes (class 1). The study is important because blah blah dicks
+The aim of our study is to predict whether a new patient will test positive for diabetes (class 1). The study is important because it can help to determine what sort of factors can lead to having diabetes, and as a result, what can be adjusted in a patient's lifestyle to lessen the chance of diabetes.
 
 \section{Data}
 \subsection{Dataset}
@@ -92,11 +92,11 @@ We wrote a script \tt{csv\_scripts\textbackslash missing\_values.py} that dealt 
 \item diabetes\_pedigree\_function
 \end{enumerate} 
 
-We determined that these attributes consisted of missing values because 0 is a impossible or unrealistic value for it.\\
+We determined that these attributes consisted of missing values because 0 is an impossible or unrealistic value.\\
 
 This script outputs two \tt{.csv} files, one with missing values taking the calculated average of its respective attribute(\tt{pima-indians-diabetes-avg.csv}) and the other with any instances with missing values omitted(\tt{pima-indians-diabetes-omit.csv}).\\
 
-We noticed that if we omit the instances with missing values we would be left with 392 instances out of the original 768. So we decided to use the averaged output file for the rest of the assignment.
+We noticed that if we omit the instances with missing values we would be left with 392 instances out of the original 768 (only 51\%!), so we decided to use the averaged output file for the rest of the assignment.
 
 \subsubsection{Normalisation}
 Once this new file was loaded into Weka, each of the attributes were normalised in the range $[0, 1]$. The final output file was saved as \tt{pima.csv}
@@ -115,34 +115,53 @@ The selected attributes were:
 We then proceed to use Weka's preprocessing features to remove the attributes that were not selected and saved the file as \tt{pima-CFS.csv}.
 
 \section{Results and Discussion}
+
+\subsection{Results from Weka}
 \begin{table}[h]
 \begin{tabular}{llllllll}
 \hline
-                                    & ZeroR   & 1R      & 1-NN    & 5-NN    & NB      & DT      & MLP     \\ \hline
-No feature selection                & 65.1042 & 70.8333 & 67.7083 & 74.7396 & 74.7396 & 72.2656 & 75.3906 \\
-Correlation-based feature selection & 65.1042 & 70.8333 & 69.0104 & 74.6094 & 76.4323 & 73.9583 & 75.7813 \\ \hline
+ 									& ZeroR    & 1R         & 1-NN     & 5-NN     & NB         & DT        & MLP \\ \hline
+No feature selection 					& 65.1042 & 70.8333 & 67.7083 & 74.7396 & 75.0000 & 72.2656 & 75.3906 \\
+Correlation-based feature selection 	& 65.1042 & 70.8333 & 69.0104 & 74.6094 & 76.4323 & 73.9583 & 75.7813 \\ \hline
 \end{tabular}
 \caption{Results from Weka}
 \end{table}
 
+ZeroR predicts class0 with the same percentage in both sets of results as it just counts which instance is more popular. In our datasets, we had 500 instances of class0 and 268 of class1, giving us the same result of 65.1042\%. Similarly, 1R picked the plasma\_glucose\_concentration attribute and counted instances, giving us the same result of 70.8333\%. \\
+For all the other algorithms, the performance was generally better with the feature selection. The 5-NN was much more accurate than the 1-NN in both sets, as would be expected by the selection and comparison of more neighbours. NB and MLP were the most accurate algorithms, possibly due to their effectiveness on such simple datasets.  \\
+MLP displayed a training time of 0.47s on the complete data (0.24s on CFS data), while all other algorithms ran instantly (displayed 0s). We believe that these low running times are due to the small size of the datasets along with the relative simplicity of the algorithms.  \\
+
+need to talk more about accuracy of each algo? 
+
+\subsection{Results from own implementation}
 \begin{table}[h]
 \begin{tabular}{@{}llll@{}}
 \hline
-                                    & My1-NN  & My5-NN  & MyNB    \\ \hline
-No feature selection                & 68.7645 & 75.2546 & 75.3828 \\
-Correlation-based feature selection & 68.4979 & 76.0509 & 76.6883 \\ \hline
+ 									& My1-NN & My5-NN & MyNB \\ \hline
+No feature selection 					& 68.7645 & 75.2546 & 75.3828 \\
+Correlation-based feature selection 	& 68.4979 & 76.0509 & 76.6883 \\ \hline
 \end{tabular}
 \caption {Results of implementations of kNN and NB}
 \end{table}
 
-discuss here blah blah blah bleh
+Once again, feature selection generally produced more accurate results from our algorithms. Our implementations had very similar results to the Weka output, which was pleasant to see. 
+
+\subsection{General discussion}
+Weka's CFS provided us with a set of five attributes as seen in section 2.3 above. The selection was somewhat intuitive; the excluded attributes were num\_pregnant, diastolic\_blood\_pressure and tricep\_skin\_fold\_thickness. We could not reason why the number of pregnancies or minimum blood pressure would contribute to or result from diabetes. Tricep skin fold thickness, however, is a measure of body fat percentage, which is related to BMI (a feature that was selected) and may have been excluded due to its similarity and possibly redundant nature in the dataset.
+In both sets of results, it was apparent that correlation-based feature selection was beneficial - using the CFS results in both Weka and our own algorithms provided more accurate results.  \\
 
 \section{Conclusions}
+Firstly, it should be noted that all the attributes tested were relevant in predicting diabetes (although some may have not been intuitively so for us). This is due to the fact that the CFS results were only slightly more accurate than the results with no feature selection (up to around 1.8\% in both result sets). However, the use of CFS was beneficial as it allowed us to narrow down the data sets to the most relevant attributes and get a better performance.  \\
+
+future work pls
+
 \section{Reflection}
+The most important thing we learned from this assignment was the aspect of teamwork. We split the tasks we had to do and took turns doing various parts of coding or writing. It was especially beneficial when we could have each other double check code or results which led to us both having a more correct understanding of the implementation or results at hand. Also, splitting the work allowed us to have a more fun and easier experience with the assignment.
+
 \section{Instructions}
 Our implementation of K Nearest Neighbour, Naive Bayes and 10\-fold stratified cross validation was written in Python 2.7.5.\\
 
-The \tt{ai\_main.py} file runs 10-fold stratified cross validation on K Nearest Neighbour($k=1$ and $k=5$) and Naive Bayes on a given \tt{.csv} file.\\
+The \tt{ai\_main.py} file runs 10-fold stratified cross validation on K Nearest Neighbour ($k=1$ and $k=5$) and Naive Bayes on a given \tt{.csv} file.\\
 
 To run our implementation, you must \tt{cd} into the \tt{ai\_code} directory and ensure that \tt{pima.csv} and \tt{pima-CFS.csv} are present in the directory. Then run:
 \begin{lstlisting}
