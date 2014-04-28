@@ -124,7 +124,7 @@ We then proceed to use Weka's preprocessing features to remove the attributes th
 No feature selection 					& 65.1042 & 70.8333 & 67.7083 & 74.7396 & 75.0000 & 72.2656 & 75.3906 \\
 Correlation-based feature selection 	& 65.1042 & 70.8333 & 69.0104 & 74.6094 & 76.4323 & 73.9583 & 75.7813 \\ \hline
 \end{tabular}
-\caption{Results from Weka}
+\caption{Results from Weka (all values in \%)}
 \end{table}
 
 ZeroR predicts class0 with the same percentage in both sets of results as it just counts which instance is more popular. In our datasets, we had 500 instances of class0 and 268 of class1, giving us the same result of 65.1042\%. Similarly, 1R picked the plasma\_glucose\_concentration attribute and counted instances, giving us the same result of 70.8333\%. \\
@@ -142,7 +142,7 @@ need to talk more about accuracy of each algo?
 No feature selection 					& 68.7645 & 75.2546 & 75.3828 \\
 Correlation-based feature selection 	& 68.4979 & 76.0509 & 76.6883 \\ \hline
 \end{tabular}
-\caption {Results of implementations of kNN and NB}
+\caption {Results of implementations of kNN and NB (all values in \%)}
 \end{table}
 
 Once again, feature selection generally produced more accurate results from our algorithms. Our implementations had very similar results to the Weka output, which was pleasant to see. 
