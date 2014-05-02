@@ -82,7 +82,7 @@ The raw \tt{.data} file was preprocessed manually in multiple ways. Firstly we h
 Using these names, we added a header row the \tt{.data} file. We then changed the values of the class column to class0 and class1 instead of 0 and 1. This file was then saved a \tt{.csv} file for later convenience.
 
 \subsubsection{Missing Values}
-We wrote a script \tt{csv\_scripts\textbackslash missing\_values.py} that dealt with the missing values in the following attributes:
+We wrote a script \tt{missing\_values.py} that dealt with the missing values in the following attributes:
 \begin{enumerate}[1.]
 \item plasma\_glucose\_concentration
 \item diastolic\_blood\_pressure
@@ -129,9 +129,7 @@ Correlation-based feature selection 	& 65.1042 & 70.8333 & 69.0104 & 74.6094 & 7
 
 ZeroR predicts class0 with the same percentage in both sets of results as it just counts which instance is more popular. In our datasets, we had 500 instances of class0 and 268 of class1, giving us the same result of 65.1042\%. Similarly, 1R picked the plasma\_glucose\_concentration attribute and counted instances, giving us the same result of 70.8333\%. \\
 For all the other algorithms, the performance was generally better with the feature selection. The 5-NN was much more accurate than the 1-NN in both sets, as would be expected by the selection and comparison of more neighbours. NB and MLP were the most accurate algorithms, possibly due to their effectiveness on such simple datasets.  \\
-MLP displayed a training time of 0.47s on the complete data (0.24s on CFS data), while all other algorithms ran instantly (displayed 0s). We believe that these low running times are due to the small size of the datasets along with the relative simplicity of the algorithms.  \\
-
-need to talk more about accuracy of each algo? 
+MLP displayed a training time of 0.47s on the complete data (0.24s on CFS data), while all other algorithms ran instantly (displayed 0s), due to the training and backpropagation algorithms. We believe that these low running times are due to the small size of the datasets along with the relative simplicity of the algorithms.  \\
 
 \subsection{Results from own implementation}
 \begin{table}[h]
@@ -149,12 +147,12 @@ Once again, feature selection generally produced more accurate results from our 
 
 \subsection{General discussion}
 Weka's CFS provided us with a set of five attributes as seen in section 2.3 above. The selection was somewhat intuitive; the excluded attributes were num\_pregnant, diastolic\_blood\_pressure and tricep\_skin\_fold\_thickness. We could not reason why the number of pregnancies or minimum blood pressure would contribute to or result from diabetes. Tricep skin fold thickness, however, is a measure of body fat percentage, which is related to BMI (a feature that was selected) and may have been excluded due to its similarity and possibly redundant nature in the dataset.
-In both sets of results, it was apparent that correlation-based feature selection was beneficial - using the CFS results in both Weka and our own algorithms provided more accurate results.  \\
+In both sets of results, it was apparent that correlation-based feature selection was beneficial - using the CFS results in both Weka and our own algorithms provided more accurate results.  
 
 \section{Conclusions}
 Firstly, it should be noted that all the attributes tested were relevant in predicting diabetes (although some may have not been intuitively so for us). This is due to the fact that the CFS results were only slightly more accurate than the results with no feature selection (up to around 1.8\% in both result sets). However, the use of CFS was beneficial as it allowed us to narrow down the data sets to the most relevant attributes and get a better performance.  \\
 
-For future experiments and research in this topic, it would be ideal to have less fragmented data and missing values. This will allow us to create a more accurate and realistic classifier where it does not need to take an average value of an attribute. \\
+For future experiments and research in this topic, it would be ideal to have less fragmented data and missing values. This will allow us to create a more accurate and realistic classifier where it does not need to take an average value of an attribute. 
 
 \section{Reflection}
 The most important thing we learned from this assignment was the aspect of teamwork. We split the tasks we had to do and took turns doing various parts of coding or writing. It was especially beneficial when we could have each other double check code or results which led to us both having a more correct understanding of the implementation or results at hand. Also, splitting the work allowed us to have a more fun and easier experience with the assignment. \\
@@ -166,7 +164,7 @@ Our implementation of K Nearest Neighbour, Naive Bayes and 10\-fold stratified c
 
 The \tt{ai\_main.py} file runs 10-fold stratified cross validation on K Nearest Neighbour ($k=1$ and $k=5$) and Naive Bayes on a given \tt{.csv} file.\\
 
-To run our implementation, you must \tt{cd} into the \tt{ai\_code} directory and ensure that \tt{pima.csv} and \tt{pima-CFS.csv} are present in the directory. Then run:
+To run our implementation, you must navigate to the directory with the files and ensure that \tt{pima.csv} and \tt{pima-CFS.csv} are present in the directory. Then run:
 \begin{lstlisting}
 python ai_main.py pima.csv
 python ai_main.py pima-CFS.csv
